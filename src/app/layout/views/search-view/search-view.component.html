@@ -1,0 +1,131 @@
+<div ngClass="search-view"
+     fxLayout="column"
+     fxLayoutAlign="space-between center"
+     fxLayoutGap="10px">
+    <div ngClass="search"
+         ngClass.xs="search-xs"
+         ngClass.sm="search-xs"
+         fxLayout="row"
+         fxLayout.xs="column"
+         fxLayoutAlign="start start"
+         fxLayoutAlign.xs="center start">
+        <div class="w-35 pd-10">
+            <h2>{{search}}</h2>
+        </div>
+        <div ngClass="search-filter h-100 pd-10"
+             ngClass.xs="w-100 h-100 pd-10"
+             ngClass.sm="w-100 h-100 pd-10"
+             fxLayout="row wrap"
+             fxLayoutAlign="space-around center"
+             fxLayoutAlign.xs="start center"
+             fxLayoutAlign.sm="start center"
+             fxLayoutGap="12px">
+            <div fxLayout="column"
+                fxLayoutAlign="center start"
+                class="h-100"
+                ngClass.xs="mb-8"
+                ngClass.sm="mb-8">
+                <div class="w-100">
+                    <span class="text-420">Precio</span>
+                </div>
+                <div fxLayout="row"
+                    fxLayoutAlign="center center"
+                    fxLayoutGap="3px"
+                    class="w-100">
+                    <input type="number"
+                        placeholder="Max Price"
+                        [(ngModel)]="min">
+                    <input type="number"
+                        placeholder="Min Price"
+                        [(ngModel)]="max">
+                    <button ngClass="menu-button" 
+                            mat-button
+                            fxLayout="row"
+                            fxLayoutAlign="center center"
+                            (click)="handleMaxAndMinPrice()">
+                        <div>
+                            <mat-icon>
+                                chevron_right
+                            </mat-icon>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div fxLayout="column"
+                 fxLayoutAlign="center start"
+                 class="h-100"
+                 ngClass.xs="mb-8"
+                 ngClass.sm="mb-8">
+                <div class="w-100">
+                    <span class="text-420">Condition:</span>
+                </div>
+                <mat-select fxLayout="row"
+                            fxLayoutAlign="center center"
+                            class="w-100 select"
+                            placeholder="all"
+                            (selectionChange)="handleCondition($event)">
+                    <mat-option class="mat-option" *ngFor="let condition of conditions" [value]="condition.value">
+                        {{condition.value}}
+                    </mat-option>
+                </mat-select>
+            </div>
+            <div fxLayout="column"
+                 fxLayoutAlign="center start"
+                 class="h-100"
+                 ngClass.xs="mb-8"
+                 ngClass.sm="mb-8">
+                <div class="w-100">
+                    <span class="text-420">Order By:</span>
+                </div>
+                <mat-select fxLayout="row"
+                            fxLayoutAlign="center center"
+                            class="w-100 select"
+                            placeholder="Order by your preference"
+                            (selectionChange)="handleOrderBy($event)">
+                    <mat-option class="mat-option" *ngFor="let orderBy of ordersBy" [value]="orderBy.value">
+                        {{orderBy.value}}
+                    </mat-option>
+                </mat-select>
+            </div>
+            <div fxLayout="column"
+                 fxLayoutAlign="center start"
+                 class="h-100"
+                 ngClass.xs="mb-8"
+                 ngClass.sm="mb-8">
+                <div class="w-100">
+                    <span class="text-420">Order:</span>
+                </div>
+                <mat-select fxLayout="row"
+                            fxLayoutAlign="center center"
+                            class="w-100 select"
+                            placeholder="asc or desc"
+                            (selectionChange)="handleOrder($event)">
+                    <mat-option class="mat-option" *ngFor="let order of orders" [value]="order.value">
+                        {{order.value}}
+                    </mat-option>
+                </mat-select>
+            </div>
+        </div>
+    </div>
+    <div class="w-100" *ngIf="products.length > 0 && !spinner">
+        <app-product-list class="w-100" [products]="products"></app-product-list>
+    </div>
+    <div class="w-100 spinner" 
+         *ngIf="spinner"
+         fxLayout="row"
+         fxLayoutAlign="center center">
+        <mat-progress-spinner diameter="80" mode="indeterminate"></mat-progress-spinner>
+    </div>
+    <div class="w-100" 
+        *ngIf="products.length === 0 && !spinner"
+        fxLayout="row"
+        fxLayoutAlign="center center">
+        <img src="assets/images/sin-products.png" alt="Without products">
+    </div>
+    <mat-paginator [length]="totalItems"
+                [pageSize]="query.limit"
+                [pageSizeOptions]="[10, 20, 40, 100]"
+                aria-label="Select page"
+                (page)="handlePageEvent($event)">
+    </mat-paginator>
+</div>

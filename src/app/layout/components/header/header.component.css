@@ -1,0 +1,145 @@
+.header {
+    width: 100% !important;
+    position: sticky !important;
+    top: 0px !important;
+    z-index: 1;
+    background-color: white !important;
+    -webkit-box-shadow: 0px 4px 5px 2px rgba(240,240,240,0.4);
+    -moz-box-shadow: 0px 4px 5px 2px rgba(240,240,240,0.4);
+    box-shadow: 0px 4px 5px 2px rgba(240,240,240,0.4);
+}
+
+.h-70p {
+    height: 70px !important;
+    padding: 0px 20px !important;
+}
+
+.h-auto {
+    height: auto !important;
+    padding: 0px 5px !important;
+}
+
+.image {
+    width: 130px;
+    height: 100% !important;
+}
+
+.image-xs {
+    width: 70px !important;
+    height: 45px !important;
+}
+
+img {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.links {
+    width: 250px;
+}
+
+.links-xs {
+    width: 200px;
+}
+
+.link {
+    min-width: 28px !important;
+    min-height: 28px !important;
+    color: rgb(255, 110, 57) !important;
+}
+
+.a {
+    min-width: 28px !important;
+    min-height: 28px !important;
+    font-size: 28px !important;
+}
+
+.a-xs {
+    font-size: 22px !important;
+}
+
+.search {
+    width: auto !important;
+    height: auto !important;
+    position: relative !important;
+}
+
+.icon {
+    position: absolute !important;
+    left: 10px !important;
+    height: 24px !important;
+    color: orangered !important;
+}
+
+.icon-xs {
+    position: absolute !important;
+    left: 10px !important;
+    bottom: 4px;
+    color: orangered !important;
+}
+
+.mat-icon {
+    font-size: 24px !important;
+    width: 24px !important;
+    height: 24px !important;
+}
+
+.text-28 {
+    font-size: 25px !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+.text-22 {
+    font-size: 22px !important;
+    width: 22px !important;
+    height: 22px !important;
+}
+
+.search {
+    width: auto !important;
+    height: 40px !important;
+}
+
+.search-xs {
+    width: 100% !important;
+    height: 45px !important;
+}
+
+.search-input {
+    width: 450px !important;
+    height: 100% !important;
+    border-radius: 25px !important;
+    box-sizing: border-box !important;
+    padding: 5px 5px 5px 34px !important;
+    border-color: orangered !important;
+    outline: none !important;
+}
+
+.search-input-sm {
+    width: 310px !important;
+    height: 100% !important;
+    border-radius: 25px !important;
+    box-sizing: border-box !important;
+    padding: 5px 5px 5px 34px !important;
+    border-color: orangered !important;
+    outline: none !important;
+}
+
+.search-input-xs {
+    width: 100% !important;
+    height: 35px !important;
+    border-radius: 25px !important;
+    box-sizing: border-box !important;
+    padding: 5px 5px 5px 34px !important;
+    border-color: orangered !important;
+    outline: none !important;
+}
+
+.none {
+    display: none !important;
+}
+
+.text-14 {
+    font-size: 14px !important;
+}

@@ -1,0 +1,165 @@
+<form fxLayout="column"
+     fxLayout.gt-sm="row"
+     fxLayoutAlign.gt-sm="center start"
+     fxLayoutAlign.sm="center start"
+     fxLayoutAlign.xs="center center"
+     ngClass="product-details"
+     [formGroup]="form"
+     (ngSubmit)="createProduct()">
+    <div ngClass.gt-sm="w-40"
+         ngClass="w-95"
+        fxLayout="column"
+        fxLayoutAlign="space-around center">
+        <div ngClass="product-image"
+             ngClass.sm="product-image-sm"
+             ngClass.xs="product-image-xs"
+             fxLayout="column"
+             fxLayoutAlign="center center"
+             fxLayoutGap="8px">
+            <img class="img" *ngIf="checkImage()" [src]="image">
+            <div *ngIf="!image" class="icon">
+                <img class="img" src="assets/images/sin-imagen.jpg" alt="Sin Image">
+            </div>
+            <mat-form-field ngClass="w-300p" ngClass.xs="w-100">
+                <mat-label>Enter the product photo</mat-label>
+                <input type="text"
+                       matInput
+                       formControlName="image"
+                       [errorStateMatcher]="matcher"
+                       placeholder="Ex. https://example.com/...example.png">
+                <mat-error *ngIf="form.hasError('image') && !form.hasError('required')">
+                  Please enter a valid url
+                </mat-error>
+                <mat-error *ngIf="form.hasError('required')">
+                  Image <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    <div ngClass.gt-sm="w-60"
+         ngClass="w-95"
+         fxLayout="column"
+         fxLayoutAlign.gt-sm="start start"
+         fxLayoutAlign="start center">
+        <div ngClass="product-info"
+            fxLayout="column" 
+            fxLayoutGap="5px">
+            <div class="toggle"
+                 fxLayout="row"
+                 fxLayoutAlign="start center">
+                <span class="mr-5">Is new?</span>
+                <mat-slide-toggle color="Primary" name="isProductNew" formControlName="isProductNew"></mat-slide-toggle>
+            </div>
+            <mat-form-field class="w-100">
+                <mat-label>Enter the product name</mat-label>
+                <input type="text"
+                       matInput
+                       name="name"
+                       formControlName="name"
+                       [errorStateMatcher]="matcher"
+                       placeholder="Example">
+                <mat-error *ngIf="!form.get('name')?.hasError('maxLength')">
+                  Name with 3 max length
+                </mat-error>
+                <mat-error *ngIf="!form.get('name')?.hasError('minLength')">
+                  Name with 3 min length
+                </mat-error>
+                <mat-error *ngIf="form.get('name')?.hasError('required')">
+                  Name required
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Enter the product SKU</mat-label>
+                <input type="text"
+                       matInput
+                       sku="sku"
+                       formControlName="sku"
+                       [errorStateMatcher]="matcher"
+                       placeholder="ANYCODE">
+                <mat-error *ngIf="!form.get('sku')?.hasError('maxLength')">
+                    SKU with 3 max length
+                </mat-error>
+                <mat-error *ngIf="!form.get('sku')?.hasError('minLength')">
+                    SKU with 3 min length
+                </mat-error>
+                <mat-error *ngIf="form.get('sku')?.hasError('required')">
+                  SKU <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-chip-grid #chipGrid
+                               aria-label="Tags selection">
+                    <mat-chip-row *ngFor="let tag of tags"
+                            [removable]="true"
+                            (removed)="removeTag(tag)"
+                            class="color">
+                      <span class="color-chip">{{tag}}</span> 
+                      <mat-icon matChipRemove>cancel</mat-icon>
+                  </mat-chip-row>
+                    <input matInput
+                            placeholder="Product tags"
+                            [matChipInputFor]="chipGrid"
+                            formControlName="tags"
+                            name="tags"
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                            [matChipInputAddOnBlur]="false"
+                            (matChipInputTokenEnd)="addTag($event)"/>
+                </mat-chip-grid>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+                <mat-label>Enter the product price</mat-label>
+                <input type="number"
+                       matInput
+                       name="price"
+                       formControlName="price"
+                       [errorStateMatcher]="matcher"
+                       placeholder="11.00">
+                <mat-error *ngIf="!form.get('price')?.hasError('min')">
+                    Price greater then 0.1
+                </mat-error>
+                <mat-error *ngIf="form.get('price')?.hasError('required')">
+                  Price <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+                <mat-label>Enter the product stock</mat-label>
+                <input type="number"
+                       matInput
+                       name="stock"
+                       formControlName="stock"
+                       [errorStateMatcher]="matcher"
+                       placeholder="1">
+                <mat-error *ngIf="!form.get('stock')?.hasError('min')">
+                    Stock greater then 0
+                </mat-error>
+                <mat-error *ngIf="form.get('stock')?.hasError('required')">
+                  Stock <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <textarea matInput 
+                          formControlName="description"
+                          name="description">
+                </textarea>
+                <mat-error *ngIf="!form.get('description')?.hasError('minLength')">
+                    Stock greater then 3
+                </mat-error>
+                <mat-error *ngIf="form.get('description')?.hasError('required')">
+                  Stock <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <div fxLayout="row"
+                  fxLayoutAlign.xs="center center">
+                <button mat-button type="submit" >
+                  <span *ngIf="!spinner">Save</span>
+                  <mat-progress-spinner *ngIf="spinner"
+                                    [diameter]="20"
+                                    [strokeWidth]="3"
+                                    [mode]="'indeterminate'">
+                  </mat-progress-spinner>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>

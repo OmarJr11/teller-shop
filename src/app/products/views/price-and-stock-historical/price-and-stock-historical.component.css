@@ -1,0 +1,74 @@
+.layout-gt-sm {
+    width: 320px !important;
+    height: 500px !important;
+}
+
+.layout-sm {
+    width: 100vw !important;
+    max-width: 800px !important;
+    height: 500px !important;
+}
+
+.layout-xs {
+    width: 100vw !important;
+    height: 450px !important;
+}
+
+.w-100 {
+    width:  100% !important;
+}
+
+.mat-icon {
+    font-size: 28px !important;
+    margin-right: 3px !important;
+    cursor: pointer !important;
+}
+
+.mat-icon:hover {
+    transition: all ease-in-out .3s;
+    color: rgb(255, 50, 50) !important
+}
+
+.text-22 {
+    font-size: 22px !important;
+}
+
+.mb-4 {
+    margin-bottom: 4px !important;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.h-100 {
+    height: 90% !important;
+}
+
+.h-415p {
+    height: 415px !important;
+}
+
+.list {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.list-item {
+    width: 100% !important;
+    height: 60px !important;
+    padding: 2px !important;
+    border-bottom: 1px solid rgb(226, 226, 226);
+}
+
+.item {
+    width: 30% !important;
+}
+
+.item-date {
+    width: 40% !important;
+}
+
+.span-xs {
+    font-size: 15px !important;
+}

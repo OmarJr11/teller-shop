@@ -1,0 +1,54 @@
+<header class="header"
+        ngClass="h-70p"
+        ngClass.sm="h-auto"
+        ngClass.xs="h-auto"
+        fxLayout="row"
+        fxLayout.xs="row wrap"
+        fxLayoutAlign="space-between center">
+    <div ngClass="image"
+         ngClass.xs="image-xs"
+         class="pointer">
+        <img src="assets/images/logos/logo-teller.png" 
+             alt="Teller Shop"
+             (click)="goTo('home')">
+    </div>
+    <div fxLayout="row"
+         fxLayoutAlign="center center"
+         class="search"
+         ngClass.xs="none">
+        <div class="icon">
+            <mat-icon class="pointer" (click)="search()">search</mat-icon>
+        </div>
+        <input ngClass="search-input" 
+               ngClass.sm="search-input-sm" 
+               type="text"
+               [(ngModel)]="searched"
+               (keyup.enter)="search()">
+    </div>
+    <div fxLayout="row"
+         fxLayoutAlign="space-around center"
+         ngClass="links"
+         ngClass.xs="links-xs">
+        <button mat-icon-button 
+                *ngFor="let route of routes" 
+                matTooltip="Go to {{route.path}}"
+                class="link"
+                (click)="goTo(route.path)">
+            <mat-icon ngClass="text-28" 
+                      ngClass.xs="text-22">{{route.name}}</mat-icon>
+        </button>
+    </div>
+    <div fxLayout="row"
+        fxLayoutAlign="center center"
+        ngClass.xs="search-xs"
+        ngClass.gt-xs="none search">
+        <div ngClass="icon"
+             ngClass.xs="icon-xs">
+            <mat-icon class="pointer" (click)="search()">search</mat-icon>
+        </div>
+        <input class="search-input-xs"
+               type="text"
+               [(ngModel)]="searched"
+               (keyup.enter)="search()">
+    </div>
+</header>

@@ -1,0 +1,115 @@
+.product-details {
+    width: 100% !important;
+    min-height: 100vh !important;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.w-150p {
+    width: 150px !important;
+}
+
+.w-95 {
+    width: 95% !important;
+}
+
+.w-90 {
+    width: 90% !important;
+}
+
+.w-60 {
+    width: 60% !important;
+}
+
+.w-40 {
+    width: 40% !important;
+}
+
+.product-image {
+    width: 90% !important;
+    height: 450px !important;
+    position: relative !important;
+}
+
+.product-image-sm {
+    width: 90% !important;
+    height: 340px !important;
+}
+
+.product-image-xs {
+    width: 90% !important;
+    height: 260px !important;
+}
+
+.img {
+    width: 90% !important;
+    height: 90% !important;
+    object-fit: contain !important
+}
+
+.img-xs {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important
+}
+
+.product-info {
+    padding: 20px 0px !important;
+    width: 95% !important;
+    min-height: 450px !important;
+}
+
+h2 {
+    font-size: 30px !important;
+}
+
+h3 {
+    font-size: 25px !important;
+}
+
+p {
+    font-size: 15px !important;
+}
+
+.color {
+    pointer-events:none !important;
+    background-color: rgb(255, 124, 76) !important;
+}
+
+.color-chip {
+    color: white !important;
+    font-size: 14px !important;
+    font-weight: 500;
+}
+
+.button {
+    width: 200px !important;
+    height: 45px !important;
+    border-radius: 25px !important;
+    background-color: rgb(255, 124, 76) !important;
+}
+
+.menu-button {
+    background-color: rgba(204, 203, 203, 0.3);
+}
+
+.menu-button-xs {
+    position: absolute !important;
+    right: 0 !important;
+    background-color: rgba(204, 203, 203, 0.3);
+}
+
+.menu-button {
+    background-color: rgba(204, 203, 203, 0.3);
+}
+
+.menu-button:hover {
+    background-color: rgb(255, 124, 76, .2);
+}
+
+mat-icon {
+    font-size: 24px !important;
+    color: rgb(255, 124, 76) !important;
+}

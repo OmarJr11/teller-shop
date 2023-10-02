@@ -1,0 +1,126 @@
+.layout-gt-sm {
+    width: 800px !important;
+    height: 350px !important;
+}
+
+.layout-sm {
+    width: 100vw !important;
+    max-width: 800px !important;
+    height: 350px !important;
+}
+
+.layout-xs {
+    width: 100vw !important;
+    height: 450px !important;
+}
+
+.w-100 {
+    width:  100% !important;
+}
+
+.mat-icon {
+    font-size: 28px !important;
+    margin-right: 3px !important;
+    cursor: pointer !important;
+}
+
+.mat-icon:hover {
+    transition: all ease-in-out .3s;
+    color: rgb(255, 50, 50) !important
+}
+
+.product-image {
+    max-width: 220px !important;
+    width: 31% !important;
+    height: 220px !important;
+}
+
+.product-image-xs {
+    width: 200px !important;
+    height: 200px !important;
+}
+
+.product-description {
+    width: 69% !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0px 10px !important;
+}
+
+.product-description-xs {
+    width: 100% !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0px 10px !important;
+}
+
+.product-button {
+    width: 100% !important;
+}
+
+button {
+    width: 150px !important;
+    height: 42px !important;
+    color: orangered !important;
+    border-color: orangered !important;
+}
+
+img {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+h2 {
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    font-size: 20px !important;
+    font-weight: 420 !important;
+}
+
+p {
+    padding: 2px !important;
+    font-size: 14px !important;
+}
+
+.text { 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 6; 
+    -webkit-box-orient: vertical;
+}
+
+.text-sm { 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 4; 
+    -webkit-box-orient: vertical;
+}
+
+.text-xs { 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 4; 
+    -webkit-box-orient: vertical;
+}
+
+.text-22 {
+    font-size: 22px !important;
+}
+
+.mb-4 {
+    margin-bottom: 4px !important;
+}
+
+.h-220p {
+    height: 220px !important;
+}
+
+.h-415p {
+    height: 415px !important;
+}

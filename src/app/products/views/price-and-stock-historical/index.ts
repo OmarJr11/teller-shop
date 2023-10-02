@@ -1,0 +1,1 @@
+export * from './price-and-stock-historical.component';

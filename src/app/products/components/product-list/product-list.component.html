@@ -1,0 +1,14 @@
+<div fxLayout="row"
+     fxLayoutAlign="center center"
+     class="product-list"
+     ngClass.gt-sm="pd-30"
+     ngClass.sm="pd-15">
+    <div class="w-100"
+         fxLayout="row wrap"
+         fxLayoutAlign="start center"    
+         fxLayoutAlign.xs="space-around center">    
+        <app-product-card *ngFor="let product of products" 
+                          [product]="product">
+        </app-product-card>
+    </div>
+</div>

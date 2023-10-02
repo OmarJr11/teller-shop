@@ -1,0 +1,54 @@
+<div ngClass.gt-xs="layout-gt-sm"
+     ngClass.sm="layout-sm"
+     ngClass.xs="layout-xs"
+     fxLayout="column">
+    <div mat-dialog-title 
+         class="w-100" 
+         fxLayout="row" 
+         fxLayoutAlign="end center">
+        <mat-icon (click)="close()">close</mat-icon>
+    </div>
+    <div mat-dialog-content
+         fxLayout="row"
+         fxLayout.sm="row"
+         fxLayout.xs="column"
+         fxLayoutAlign="start center"
+         class="w-100"
+         ngClass.gt-sm="h-220p"
+         ngClass.xs="h-415p">
+        <div ngClass="product-image"
+             ngClass.xs="product-image-xs">
+            <img [src]="product.image" [alt]="product.name">
+        </div>
+        <div ngClass="product-description"
+             ngClass.sm="product-description"
+             ngClass.xs="product-description-xs"
+             fxLayout="column"
+             fxLayoutAlign="space-between">
+            <div fxLayout="column">
+                <h2>{{product.name}}</h2>
+                <span>SKU: {{ product.sku }}</span>
+                <p ngClass.gt-sm="text"
+                   ngClass.sm="text-sm"
+                   ngClass.xs="text-xs">
+                    {{product.description}}
+                </p>
+            </div>
+            <div fxLayout="row"
+                 fxLayoutAlign="space-between center">
+                <div fxLayout="column">
+                    <span class="main-color mb-4" *ngIf="product.stock > 0; else elseBlock">In Stock</span>
+                    <ng-template #elseBlock>
+                        <span class="main-color mb-4">Out of stock</span>
+                    </ng-template>
+                    <span class="bold text-22">${{product.price}}</span>
+                </div>
+                <div (click)="goToDetails()"
+                     fxLayout="row"
+                     fxLayoutAlign="end center">
+                    <button mat-stroked-button><span>See Product</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

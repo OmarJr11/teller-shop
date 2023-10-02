@@ -1,0 +1,26 @@
+<div class="product-card"
+     ngClass.gt-sm="mr-20"
+     ngClass.sm="mr-15"
+     fxLayout="column">
+    <div class="product-image">
+        <img [src]="product.image" 
+             (click)="goToDetails()">
+        <div class="launch-icon"
+             (click)="openDialog()">
+            <mat-icon>launch</mat-icon>
+        </div>
+    </div>
+    <div fxLayout="column"
+         class="w-100"
+         (click)="goToDetails()">
+        <div fxLayout="row" class="product-info">
+            <span class="bold">{{product.name}}</span>
+        </div>
+        <div fxLayout="row" class="product-info">
+            <span class="text-14">SKU: {{product.sku}}</span>
+        </div>
+        <div fxLayout="row" class="product-info">
+            <span class="bold text-22">${{product.price}}</span>
+        </div>
+    </div>
+</div>

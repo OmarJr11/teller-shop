@@ -1,0 +1,87 @@
+<div fxLayout="column"
+     fxLayout.gt-sm="row"
+     fxLayoutAlign.gt-sm="start center"
+     fxLayoutAlign.sm="start center"
+     fxLayoutAlign.xs="start center"
+     ngClass="product-details">
+    <div ngClass.gt-sm="w-40"
+         ngClass="w-95"
+         fxLayout="column"
+         fxLayoutAlign="space-around center">
+        <div ngClass="product-image"
+            ngClass.sm="product-image-sm"
+            ngClass.xs="product-image-xs"
+            fxLayout="row">
+            <img ngClass="img" ngClass.xs="img-xs" *ngIf="product" [src]="product.image" alt="product.name">
+            <button *ngIf="product" ngClass="menu-button" ngClass.xs="menu-button-xs" mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <ngx-skeleton-loader class="skeleton" *ngIf="!product" count="1" appearance="line"></ngx-skeleton-loader>
+        </div>
+    </div>
+    <div ngClass.gt-sm="w-60"
+         ngClass="w-95"
+         fxLayout="column"
+         fxLayoutAlign.gt-sm="start start"
+         fxLayoutAlign="start center">
+        <div ngClass="product-info"
+            fxLayout="column" 
+            fxLayoutGap="5px">
+            <div class="w-100" fxLayout="column" class="main-color">
+                <h2 *ngIf="product">{{product.name}}</h2>
+                <ngx-skeleton-loader class="skeleton" *ngIf="!product" count="1" appearance="line"></ngx-skeleton-loader>
+            </div>
+            <div fxLayout="column">
+                <span *ngIf="product" class="bold">SKU: {{product.sku}}</span>
+                <ngx-skeleton-loader class="w-150p" *ngIf="!product" count="1" appearance="line"></ngx-skeleton-loader>
+            </div>
+            <div class="main-color" *ngIf="product && product.isProductNew" fxLayout="column">
+                <span >Is new</span>
+            </div>
+            <div class="main-color" *ngIf="product && !product.isProductNew" fxLayout="column">
+                <span >Is used</span>
+            </div>
+            <mat-chip-listbox *ngIf="product">
+                <mat-chip class="color" 
+                          *ngFor="let tag of product.tags">
+                    <span class="color-chip">{{tag}}</span> 
+                </mat-chip>
+            </mat-chip-listbox>
+            <div fxLayout="row"
+                 fxLayoutAlign="start center"
+                 fxLayoutGap="4px"
+                 class="main-color"
+                 *ngIf="product; else elseBlock">
+                <div>
+                    <h3>${{product.price}}</h3>
+                </div>
+                <div *ngIf="product.stock > 0; else elseBlock" 
+                    fxLayout="column">
+                   <span class="bold main-color">(In stock)</span>
+                </div>
+                <ng-template #elseBlock>
+                    <span class="bold main-color">(Out of stock)</span>
+                </ng-template>
+            </div>
+            <ng-template #elseBlock>
+                <ngx-skeleton-loader class="w-150p" *ngIf="!product" count="1" appearance="line"></ngx-skeleton-loader>
+            </ng-template>
+
+            <div fxLayout="column"
+                 class="w-90">
+                <p *ngIf="product" >{{product.description}}</p>
+                <ngx-skeleton-loader class="skeleton" *ngIf="!product" count="1" appearance="line"></ngx-skeleton-loader>
+            </div>
+            <div fxLayout="row"
+                 fxLayoutAlign.xs="center center"
+                 *ngIf="product">
+                <button class="button" mat-button [disabled]="product.stock === 0"><span>Buy now</span></button>
+            </div>
+        </div>
+    </div>
+</div>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="edit()">Edit</button>
+    <button mat-menu-item (click)="openDialog()">Product Historical</button>
+    <button mat-menu-item (click)="delete()">Delete</button>
+</mat-menu>

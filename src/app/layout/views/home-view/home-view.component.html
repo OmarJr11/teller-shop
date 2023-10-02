@@ -1,0 +1,27 @@
+<app-banner></app-banner>
+<div class="home-div"
+     fxLayout="column"
+     fxLayoutAlign="start center">
+    <div class="title-div"
+         fxLayout="column"
+         fxLayoutAlign="center center">
+        <h3 class="title">Featured</h3>
+        <span>Products</span>
+    </div>
+    <div class="w-100"
+         fxLayout="row"
+         *ngIf="products.length > 0">
+        <app-product-list class="w-100" [products]="products"></app-product-list>
+    </div>
+    <div class="title-div"
+         fxLayout="column"
+         fxLayoutAlign="center center">
+        <h3 class="title">Best seller</h3>
+        <span>Products</span>
+    </div>
+    <div class="w-100"
+         fxLayout="row"
+         *ngIf="products.length > 0">
+        <app-product-list class="w-100" [products]="products"></app-product-list>
+    </div>
+</div>

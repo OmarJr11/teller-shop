@@ -1,0 +1,36 @@
+<div ngClass.gt-xs="layout-gt-sm"
+     ngClass.sm="layout-sm"
+     ngClass.xs="layout-xs"
+     fxLayout="column">
+    <div mat-dialog-title 
+         class="w-100" 
+         fxLayout="row" 
+         fxLayoutAlign="end center">
+        <mat-icon (click)="close()">close</mat-icon>
+    </div>
+    <div mat-dialog-content
+         fxLayout="row"
+         fxLayout.sm="row"
+         fxLayout.xs="column"
+         fxLayoutAlign="start center"
+         class="w-100"
+         ngClass.gt-sm="h-100%"
+         ngClass.xs="h-415p">
+         <div class="list">
+            <div ngClass="w-100 list-item" 
+                *ngFor="let item of historical"
+                fxLayout="row"
+                fxLayoutAlign="center center">
+                <div ngClass="item">
+                    <span ngClass="span-xs">Price: {{item.price}}</span>
+                </div>
+                <div ngClass="item">
+                    <span ngClass="span-xs">Stock: {{item.stock}}</span>
+                </div>
+                <div ngClass="item-date">
+                    <span ngClass="span-xs">Date: {{item.creationDate | date: 'shortDate'}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
