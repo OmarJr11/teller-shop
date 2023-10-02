@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class SearchViewComponent implements OnInit {
   products: Product[] = [];
-  search: string = String(this._activatedRoute.snapshot.paramMap.get('search'));
+  search: any = this._activatedRoute.snapshot.paramMap.get('search');
   query: ApiParams = {
     search: this.search,
     page: 1,
@@ -55,6 +55,9 @@ export class SearchViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log(this.search);
+    
+    this.query.search = this.search === null || this.search === undefined ? '' : String(this.search);
     this.searchProducts();
   }
 
@@ -154,7 +157,6 @@ export class SearchViewComponent implements OnInit {
         },
         error: () => {
           this.spinner=false;
-          this._router.navigate(['home']);
         }
       })
     );

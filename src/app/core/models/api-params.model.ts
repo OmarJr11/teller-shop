@@ -1,6 +1,6 @@
 export interface ApiParams {
     page: number,
-    search: string,
+    search?: string,
     limit?: number,
     order?: 'asc' | 'desc',
     orderBy?: string,

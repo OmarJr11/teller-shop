@@ -12,9 +12,6 @@ import { ProductService } from 'src/app/core/services/products.service';
 export class HeaderComponent {
   searched = '';
   routes: { path: string, name: string}[] = [
-    { path: 'home', name: 'home_border'},
-    { path: 'home', name: 'shopping_cart'},
-    { path: 'home', name: 'favorite'},
     { path: 'product/create', name: 'add_circle'}
   ];
 

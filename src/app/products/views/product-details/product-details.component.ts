@@ -33,7 +33,6 @@ export class ProductDetailsComponent implements OnInit {
           }
         },
         error: () => {
-          this._router.navigate(['home']);
         }
       })
     );
@@ -59,11 +58,10 @@ export class ProductDetailsComponent implements OnInit {
       this._productService.deleteProduct(this.id).subscribe({
         next: (response) => {
           if(response.status) {
-            this._router.navigate(['home']);
+            this._router.navigate(['search']);
           }
         },
         error: () => {
-          this._router.navigate(['home']);
         }
       })
     );

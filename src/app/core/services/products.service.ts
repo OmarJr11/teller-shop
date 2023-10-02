@@ -81,6 +81,9 @@ export class ProductService {
      * @memberof ProductService
      */
     searchProduct(params: ApiParams): Observable<ProductResponse> {
+        if(!params.search) {
+            delete params.search;
+        }
         if(!params.maxPrice) {
             delete params.maxPrice;
         }

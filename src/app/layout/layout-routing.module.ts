@@ -9,11 +9,7 @@ export const LAYOUT_ROUTES: Routes = [
       children: [
         {
             path: '',
-            component: HomeViewComponent,
-        },
-        {
-            path: 'home',
-            component: HomeViewComponent,
+            component: SearchViewComponent,
         },
         {
             path: 'search/:search',
